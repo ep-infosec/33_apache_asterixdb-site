@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>AsterixDB Extensions</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+
+  <div class="container theme-showcase" role="main">
+          <div class="masthead">
+        <p class="lead">
+           <a href="index.html">
+             <img src="img/asterixdb_tm.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/>
+           </a>
+        </p>
+      </div>
+
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Overview</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="download.html">Download</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Stable release</li>
+                  <li><a href="docs/0.9.8/index.html">Documentation for 0.9.8<i class="fa fa-external-link fa-sm"></i></a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Snapshot release</li>
+                  <li><a href="https://ci.apache.org/projects/asterixdb/index.html">Documentation for 0.9.7-SNAPSHOT  <i class="fa fa-external-link fa-sm"></i></a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Tutorial for SQL Users</li>
+                  <li><a href="files/SQL_Book.pdf">Don Chamberlin's SQL++ for SQL Users<i class="fa fa-external-link fa-sm"></i></a></li>
+                </ul>
+              </li>
+              <li><a href="about.html">About</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Community<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="community.html">Mailing Lists</a></li>
+                  <li><a href="community.html#irc">IRC</a></li>
+                  <li><a href="community.html#asterixdb-team">Team</a></li>
+                  <li><a href="https://issues.apache.org/jira/browse/ASTERIXDB">Issue Tracker</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Development<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">For New Contributors</li>
+                  <li><a href="dev-setup.html">Development Setup</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">For Committers</li>
+                  <li><a href="pushing.html">Pushing changes</a></li>
+                  <li><a href="site.html">Editing this site</a></li>
+                  <li class="dropdown-header">Extensions</li>
+                  <li><a href="extension.html">Extending AsterixDB</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                   style="padding-right: 30px">
+                  <img src="img/feather.png" style="height:20px"/>Apache Software Foundation<span class="caret"/>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li><a href="http://www.apache.org/"><b>ASF Homepage</b></a></li>
+                  <li><a href="http://www.apache.org/licenses/">License</a></li>
+                  <li><a href="http://www.apache.org/foundation/sponsorship.html">Donate</a></li>
+                  <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                  <li><a href="http://www.apache.org/security/">Security</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+
+    <div class="row">
+<div class="col-md-8 col-centered">
+<h2>AsterixDB Extensions</h2>
+<ul id="markdown-toc">
+  <li><a href="#integrating-with-asterixdb-build" id="markdown-toc-integrating-with-asterixdb-build">Integrating with AsterixDB Build</a>    <ul>
+      <li><a href="#bill-of-materials-maven-module" id="markdown-toc-bill-of-materials-maven-module">Bill of Materials Maven Module</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="integrating-with-asterixdb-build">Integrating with AsterixDB Build</h2>
+
+<p>Extensions can be built as part of the AsterixDB + Hyracks build by adding a module in ‘asterixdb/asterix-opt’  The
+ presence of a pom.xml in this directory adds this to the maven reactor as a sub-module of asterixdb.</p>
+
+<h3 id="bill-of-materials-maven-module">Bill of Materials Maven Module</h3>
+
+<p>A Bill of Materials (i.e. BOM) must be provided to indicate which (if any) jars &amp; dependencies should be included in
+ the AsterixDB (e.g. asterix-server, asterix-installer, etc.) binary assemblies.  Typically, the maven module defined
+ in asterixdb/asterix-opt will have a BOM project as a sub-module.</p>
+
+<p>This BOM must have the following coordinates, as this is used as the linkage into the asterix-server binary-assembly:
+<code>org.apache.asterix:asterix-opt-bom:0.8.9-SNAPSHOT:pom</code> (<em>version must match AsterixDB project version</em>)</p>
+
+<p>Any dependencies specified in the BOM (as well as transitive dependencies) will be included in the AsterixDB binary
+  assemblies.  If no jars are desired to be included in the AsterixDB binary assemblies, the BOM need not specify any
+  dependencies.</p>
+
+<h4 id="example-bom">Example BOM</h4>
+
+<pre><code>&lt;project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
+
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+  &lt;!-- project coordinates --&gt;
+  &lt;groupId&gt;org.apache.asterix&lt;/groupId&gt;
+  &lt;artifactId&gt;asterix-opt-bom&lt;/artifactId&gt;
+  &lt;version&gt;0.8.9-SNAPSHOT&lt;/version&gt;
+  &lt;packaging&gt;pom&lt;/packaging&gt;
+  &lt;name&gt;psu-nittany-bom&lt;/name&gt;
+  &lt;description&gt;Penn State Nittany Lion Search Extension to AsterixDB&lt;/description&gt;
+
+  &lt;!-- any dependencies listed here will be included in --&gt;
+  &lt;!-- asterix-server, etc. binary assemblies --&gt;
+  &lt;dependencies&gt;
+      &lt;dependency&gt;
+      &lt;groupId&gt;edu.psu.cs&lt;/groupId&gt;
+      &lt;artifactId&gt;nittany-search&lt;/artifactId&gt;
+      &lt;version&gt;0.1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+
+</div>
+</div>
+
+
+    <hr/>
+
+    <footer>
+      <div class="row">
+        <div class="col-md-9 col-centered text-center">
+          <p/>
+          <p>&copy; Copyright 2016 The Apache Software foundation. All Rights Reserved. </p>
+          <p>Apache AsterixDB, the Apache AsterixDB logo, Apache, and the Apache feather logo are trademarks of the
+            Apache Software Foundation</p>
+        </div>
+      </div>
+    </footer>
+  </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
